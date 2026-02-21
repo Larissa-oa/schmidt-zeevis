@@ -1,0 +1,347 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Custom palette: #193A54 (blue), #0B1E2E (darker blue), #CAFA7D (green), #3f91d4 (circle accent) */
+    --background: 200 20% 98%;
+    --foreground: 208 61% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 208 61% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 208 61% 11%;
+
+    /* #193A54 - main blue */
+    --primary: 207 54% 21%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light blue tint */
+    --secondary: 207 40% 94%;
+    --secondary-foreground: 207 54% 21%;
+
+    /* Soft muted tones */
+    --muted: 200 20% 95%;
+    --muted-foreground: 200 20% 45%;
+
+    /* Coral accent for CTAs */
+    --accent: 12 85% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    /* #CAFA7D - green */
+    --success: 84 92% 74%;
+    --success-foreground: 208 61% 11%;
+
+    /* Ocean blue highlight */
+    --highlight: 207 61% 54%;
+    --highlight-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 207 54% 21%;
+
+    /* Light blue - circles behind collection images on homepage */
+    --collection-circle: 207 50% 82%;
+
+    /* #74A428 - accent green for vanaf, in seizoen tag, filter and viskalendar */
+    --accent-green: 83 61% 40%;
+
+    --radius: 1rem;
+
+    /* Custom gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(207 54% 21%) 0%, hsl(207 61% 54%) 100%);
+    --gradient-coral: linear-gradient(135deg, hsl(12 85% 58%) 0%, hsl(25 90% 55%) 100%);
+    --gradient-ice: linear-gradient(180deg, hsl(207 30% 96%) 0%, hsl(207 40% 92%) 100%);
+    --gradient-fresh: linear-gradient(135deg, hsl(84 92% 74%) 0%, hsl(90 85% 70%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(207 54% 21% / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(207 54% 21% / 0.12);
+    --shadow-float: 0 20px 50px -15px hsl(207 54% 21% / 0.2);
+    --shadow-glow: 0 0 40px hsl(207 54% 21% / 0.15);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 208 61% 11%;
+    --sidebar-primary: 207 54% 21%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 207 40% 94%;
+    --sidebar-accent-foreground: 207 54% 21%;
+    --sidebar-border: 200 20% 88%;
+    --sidebar-ring: 207 54% 21%;
+  }
+
+  .dark {
+    /* #0B1E2E - darker blue for dark mode */
+    --background: 208 61% 8%;
+    --foreground: 200 20% 95%;
+
+    --card: 208 61% 12%;
+    --card-foreground: 200 20% 95%;
+
+    --popover: 208 61% 12%;
+    --popover-foreground: 200 20% 95%;
+
+    --primary: 207 61% 54%;
+    --primary-foreground: 208 61% 11%;
+
+    --secondary: 208 61% 18%;
+    --secondary-foreground: 200 20% 95%;
+
+    --muted: 208 61% 18%;
+    --muted-foreground: 200 20% 65%;
+
+    --accent: 12 85% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 84 92% 74%;
+    --success-foreground: 208 61% 11%;
+
+    --highlight: 207 61% 54%;
+    --highlight-foreground: 208 61% 11%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 208 61% 20%;
+    --input: 208 61% 20%;
+    --ring: 207 61% 54%;
+
+    --collection-circle: 207 52% 42%;
+    --accent-green: 83 61% 40%;
+
+    --sidebar-background: 208 61% 10%;
+    --sidebar-foreground: 200 20% 95%;
+    --sidebar-primary: 207 61% 54%;
+    --sidebar-primary-foreground: 208 61% 11%;
+    --sidebar-accent: 208 61% 18%;
+    --sidebar-accent-foreground: 200 20% 95%;
+    --sidebar-border: 208 61% 20%;
+    --sidebar-ring: 207 61% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .text-gradient-ocean {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-ocean);
+  }
+
+  .text-gradient-coral {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-coral);
+  }
+
+  .bg-gradient-ocean {
+    background-image: var(--gradient-ocean);
+  }
+
+  .bg-gradient-coral {
+    background-image: var(--gradient-coral);
+  }
+
+  .bg-gradient-ice {
+    background-image: var(--gradient-ice);
+  }
+
+  .bg-gradient-fresh {
+    background-image: var(--gradient-fresh);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Playful blob shapes */
+  .blob-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  /* Fish wave animation */
+  @keyframes wave {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(1deg); }
+    75% { transform: translateY(5px) rotate(-1deg); }
+  }
+
+  .animate-wave {
+    animation: wave 3s ease-in-out infinite;
+  }
+
+  /* Float animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Shimmer effect */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(0 0% 100% / 0.3) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Bubble animation */
+  @keyframes bubble {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+  }
+
+  .animate-bubble {
+    animation: bubble 2s ease-in-out infinite;
+  }
+
+  /* Card hover lift */
+  .card-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Playful badge */
+  .badge-playful {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold;
+    background-image: var(--gradient-ocean);
+    color: white;
+    transform: rotate(-3deg);
+  }
+
+  /* Season indicators */
+  .season-available {
+    @apply bg-success text-success-foreground;
+  }
+
+  .season-in-season {
+    @apply bg-gradient-fresh text-success-foreground;
+  }
+
+  .season-unavailable {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  /* Cartoon 3D border - thicker bottom/right "shadow" edge for blocky depth */
+  .card-3d-border {
+    border: 2px solid hsl(var(--border));
+    border-radius: 1rem;
+    box-shadow: 4px 4px 0 0 hsl(var(--border));
+    transition: all 0.3s;
+  }
+  .group:hover .card-3d-border,
+  .card-3d-border:hover {
+    border-color: hsl(var(--primary) / 0.6);
+    box-shadow: 5px 5px 0 0 hsl(var(--primary) / 0.4);
+  }
+
+  /* Collection card - cartoon 3D default, green-blue gradient on hover */
+  .collection-card-border {
+    @apply card-3d-border;
+  }
+  .group:hover .collection-card-border {
+    border: 2px solid transparent;
+    box-shadow: none;
+    background:
+      linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+      linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent-green))) border-box;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  /* Review card - thick left border in accent-green (matches fish calendar) */
+  .card-3d-border-review {
+    border: 1px solid hsl(var(--border));
+    border-left: 6px solid hsl(var(--accent-green));
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px hsl(var(--foreground) / 0.04);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .group:hover .card-3d-border-review,
+  .card-3d-border-review:hover {
+    border-right-color: hsl(var(--accent-green) / 0.25);
+    border-top-color: hsl(var(--accent-green) / 0.25);
+    border-bottom-color: hsl(var(--accent-green) / 0.25);
+    border-left: 6px solid hsl(var(--accent-green));
+    box-shadow: 0 4px 12px hsl(var(--accent-green) / 0.1);
+  }
+
+  /* Gradient border - no corner clipping (green to blue) for product image */
+  .gradient-border-green-blue {
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    background:
+      linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+      linear-gradient(to bottom right, hsl(var(--accent-green)), hsl(var(--primary))) border-box;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes slide-in-right {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out;
+  }
+}
